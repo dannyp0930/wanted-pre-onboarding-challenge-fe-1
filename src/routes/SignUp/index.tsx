@@ -1,10 +1,19 @@
+import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
-  function handleSubmit(e: React.SyntheticEvent) {
+  const navigate = useNavigate();
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
+    const res = await axios.post("http://localhost:8080/users/create", {
+      email: email,
+      password: password,
+    });
+    localStorage.setItem("accesstoken", res.data.token);
+    navigate("/");
   }
   return (
     <div>
@@ -14,7 +23,7 @@ function SignUp() {
           type="email"
           placeholder="이메일"
           onChange={(e) => setEmail(e.target.value)}
-          pattern="^[a-z0-9]+@[a-z]+\.[a-z]"
+          pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$"
         />
         <input
           type="password"
