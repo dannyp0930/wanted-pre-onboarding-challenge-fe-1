@@ -33,8 +33,10 @@ function Home() {
       const data = await getToDos();
       setToDos(data);
     })();
+    setTitle("");
+    setContent("");
   }
-  
+
   return (
     <>
       {accessToken ? (
@@ -47,12 +49,14 @@ function Home() {
               title="제목"
               placeholder="제목"
               onChange={(e) => setTitle(e.target.value)}
+              value={title}
             />
             <input
               type="text"
               title="내용"
               placeholder="내용"
               onChange={(e) => setContent(e.target.value)}
+              value={content}
             />
             <button>추가</button>
           </form>
