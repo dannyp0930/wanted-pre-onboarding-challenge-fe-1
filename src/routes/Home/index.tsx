@@ -13,10 +13,7 @@ function Home() {
 
   // To Do list 호출
   useEffect(() => {
-    (async () => {
-      const data = await getToDos();
-      setToDos(data);
-    })();
+    getToDos().then((data) => setToDos(data));
   }, []);
 
   // 로그아웃
@@ -29,10 +26,7 @@ function Home() {
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     createTodo(title, content);
-    (async () => {
-      const data = await getToDos();
-      setToDos(data);
-    })();
+    getToDos().then(data => setToDos(data));
     setTitle("");
     setContent("");
   }
