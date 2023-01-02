@@ -17,6 +17,7 @@ export const Header = styled.div`
 `;
 
 export const Input = styled.input`
+  width: 50%;
   font-size: 1.5rem;
   font-weight: bold;
   height: calc(1.5rem - 1px);
