@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { format } from 'timeago.js';
 import { deleteTodo, getTodos, updateTodo } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
 
@@ -57,8 +58,8 @@ export default function ToDoItem({ toDo, setToDos }: ToDoPros) {
         </>
       )}
       <button onClick={handleDelete}>삭제</button>
-      <h3>작성 : {toDo.createdAt}</h3>
-      <h3>수정 : {toDo.updatedAt}</h3>
+      <h3>작성 : {format(toDo.createdAt, "ko")}</h3>
+      <h3>수정 : {format(toDo.updatedAt, "ko")}</h3>
     </li>
   );
 }
