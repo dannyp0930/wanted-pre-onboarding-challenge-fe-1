@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { format } from 'timeago.js';
+import { format } from "timeago.js";
 import { deleteTodo, getTodos, updateTodo } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
+import {
+  Button,
+  Buttons,
+  Content,
+  Header,
+  Input,
+  Item,
+  Textarea,
+  Title,
+} from "./style";
 
 type ToDoPros = {
   toDo: ToDo;
@@ -36,30 +46,43 @@ export default function ToDoItem({ toDo, setToDos }: ToDoPros) {
   }
 
   return (
-    <li>
+    <Item>
       {modify ? (
         <>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <textarea
+          <Header>
+            <Input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <Buttons>
+              <Button onClick={handleUpdate}>완료</Button>
+              <Button onClick={handleDelete}>삭제</Button>
+            </Buttons>
+          </Header>
+          <Textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <button onClick={handleUpdate}>완료</button>
         </>
       ) : (
         <>
-          <h2 id={`${toDo.id}`}><a href={`#${toDo.id}`}>{toDo.title}</a></h2>
-          <p>{toDo.content}</p>
-          <button onClick={() => setModify(!modify)}>수정</button>
+          <Header>
+            <Title id={`${toDo.id}`}>
+              <a href={`#${toDo.id}`}>{toDo.title}</a>
+            </Title>
+            <Buttons>
+              <Button onClick={() => setModify(!modify)}>수정</Button>
+              <Button onClick={handleDelete}>삭제</Button>
+            </Buttons>
+          </Header>
+          <Content>{toDo.content}</Content>
         </>
       )}
-      <button onClick={handleDelete}>삭제</button>
-      <h3>작성 : {format(toDo.createdAt, "ko")}</h3>
-      <h3>수정 : {format(toDo.updatedAt, "ko")}</h3>
-    </li>
+      <section>
+        <p>작성 : {format(toDo.createdAt, "ko")}</p>
+        <p>수정 : {format(toDo.updatedAt, "ko")}</p>
+      </section>
+    </Item>
   );
 }

@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { createTodo, getTodos } from "../../api/todo";
 import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
-import { Article, Button, Container, Form, Input, LogOut, Nav, TextArea, Title } from "./style";
+import { Article, Button, Container, Form, Input, Items, LogOut, Nav, TextArea, Title } from "./style";
 
 function Home() {
   const [toDos, setToDos] = useState<ToDo[]>([]);
@@ -58,11 +58,11 @@ function Home() {
             <Button>추가</Button>
           </Form>
           <Article>
-            <ul>
+            <Items>
               {toDos?.map((toDo: ToDo) => (
                 <ToDoItem key={toDo.id} toDo={toDo} setToDos={setToDos} />
               ))}
-            </ul>
+            </Items>
           </Article>
         </Container>
       ) : (

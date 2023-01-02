@@ -45,4 +45,12 @@ export const Button = styled.button``;
 
 export const Article = styled.article`
   margin-top: 2rem;
+  width: 80%;
+  display: flex;
+`;
+
+export const Items = styled.ul`
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
 `;
