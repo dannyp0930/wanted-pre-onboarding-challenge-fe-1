@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { createTodo, getTodos } from "../../api/todo";
 import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
+import { Article, Button, Container, Form, Input, LogOut, Nav, TextArea, Title } from "./style";
 
 function Home() {
   const [toDos, setToDos] = useState<ToDo[]>([]);
@@ -35,34 +36,35 @@ function Home() {
   return (
     <>
       {accessToken ? (
-        <div>
-          <button onClick={handleClick}>로그아웃</button>
-          <h1>To Do</h1>
-          <form onSubmit={handleSubmit}>
-            <input
+        <Container>
+          <Nav>
+            <Title>To Do</Title>
+            <LogOut onClick={handleClick}>로그아웃</LogOut>
+          </Nav>
+          <Form onSubmit={handleSubmit}>
+            <Input
               type="text"
               title="제목"
               placeholder="제목"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
-            <input
-              type="text"
+            <TextArea
               title="내용"
               placeholder="내용"
               onChange={(e) => setContent(e.target.value)}
               value={content}
             />
-            <button>추가</button>
-          </form>
-          <div>
+            <Button>추가</Button>
+          </Form>
+          <Article>
             <ul>
               {toDos?.map((toDo: ToDo) => (
                 <ToDoItem key={toDo.id} toDo={toDo} setToDos={setToDos} />
               ))}
             </ul>
-          </div>
-        </div>
+          </Article>
+        </Container>
       ) : (
         <Navigate to="/auth"></Navigate>
       )}
