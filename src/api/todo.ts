@@ -5,7 +5,7 @@ const instance = tokenInstance();
 export async function getToDos() {
   try {
     const res = await instance.get("/todos");
-    return res
+    return res.data.data
   } catch (error) {
     console.log(error);
   }
