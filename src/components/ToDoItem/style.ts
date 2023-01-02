@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Item = styled.li`
-  font-family: "Courier New";
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   border: 1px solid black;
   border-radius: 1rem;
+  margin: 1rem;
   padding: 1rem;
 `;
 
@@ -19,7 +19,6 @@ export const Header = styled.div`
 export const Input = styled.input`
   font-size: 1.5rem;
   font-weight: bold;
-  font-family: "Courier New";
   height: calc(1.5rem - 1px);
   border: none;
   border-bottom: 1px solid black;
@@ -41,7 +40,7 @@ export const Title = styled.h2`
 
 export const Textarea = styled.textarea`
   font-size: 1rem;
-  font-family: "Courier New";
+  line-height: 125%;
   resize: none;
   border: none;
   border-bottom: 1px solid black;
@@ -55,6 +54,8 @@ export const Textarea = styled.textarea`
 
 export const Content = styled.p`
   height: 5rem;
+  padding: 0;
+  line-height: 125%;
   white-space: pre-line;
   overflow: auto;
 `;
