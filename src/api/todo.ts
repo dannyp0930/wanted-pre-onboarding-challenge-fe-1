@@ -20,9 +20,12 @@ export async function getTodoById() {
   }
 }
 
-export async function createTodo(id: string) {
+export async function createTodo(title: string, content: string) {
   try {
-    const res = await instance.get(`/todos/${id}`);
+    const res = await instance.post("/todos", {
+      title: title,
+      content: content,
+    });
     console.log(res);
   } catch (error) {
     console.log(error);
