@@ -2,7 +2,7 @@ import { tokenInstance } from ".";
 
 const instance = tokenInstance();
 
-export async function getToDos() {
+export async function getTodos() {
   try {
     const res = await instance.get("/todos");
     return res.data.data

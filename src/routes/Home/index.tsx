@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { createTodo, getToDos } from "../../api/todo";
+import { createTodo, getTodos } from "../../api/todo";
 import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
 
@@ -13,7 +13,7 @@ function Home() {
 
   // To Do list 호출
   useEffect(() => {
-    getToDos().then((data) => setToDos(data));
+    getTodos().then((data) => setToDos(data));
   }, []);
 
   // 로그아웃
@@ -26,7 +26,7 @@ function Home() {
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     createTodo(title, content);
-    getToDos().then(data => setToDos(data));
+    getTodos().then(data => setToDos(data));
     setTitle("");
     setContent("");
   }
