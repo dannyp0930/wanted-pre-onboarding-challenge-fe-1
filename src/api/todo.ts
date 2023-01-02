@@ -47,7 +47,7 @@ export async function updateTodo(id: string, title: string, content: string) {
 export async function deleteTodo(id: string) {
   try {
     const res = await instance.delete(`/todos/${id}`);
-    console.log(res);
+    return res;
   } catch (error) {
     console.log(error);
   }

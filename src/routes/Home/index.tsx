@@ -5,7 +5,7 @@ import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
 
 function Home() {
-  const [toDos, setToDos] = useState<[]>([]);
+  const [toDos, setToDos] = useState<ToDo[]>([]);
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const navigate = useNavigate();
@@ -23,10 +23,11 @@ function Home() {
   }
 
   // To Do 생성
-  function handleSubmit(e: React.SyntheticEvent) {
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    createTodo(title, content);
-    getTodos().then(data => setToDos(data));
+    await createTodo(title, content);
+    const data = await getTodos();
+    setToDos(data);
     setTitle("");
     setContent("");
   }
@@ -57,7 +58,7 @@ function Home() {
           <div>
             <ul>
               {toDos?.map((toDo: ToDo) => (
-                <ToDoItem key={toDo.id} toDo={toDo} />
+                <ToDoItem key={toDo.id} toDo={toDo} setToDos={setToDos} />
               ))}
             </ul>
           </div>
