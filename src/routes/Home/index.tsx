@@ -1,26 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { createTodo, getToDos } from "../../api/todo";
+import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
 
 function Home() {
-  const [toDos, setToDos] = useState<ToDo[]>([]);
+  const [toDos, setToDos] = useState<[]>([]);
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("accessToken");
+
+  // To Do list 호출
+  useEffect(() => {
+    (async () => {
+      const data = await getToDos();
+      setToDos(data);
+    })();
+  }, []);
+
+  // 로그아웃
   function handleClick() {
     localStorage.removeItem("accessToken");
     navigate("/auth");
   }
+
+  // To Do 생성
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     createTodo(title, content);
-    setToDos([...toDos])
+    (async () => {
+      const data = await getToDos();
+      setToDos(data);
+    })();
   }
-  useEffect(() => {
-    getToDos();
-  }, []);
+  
   return (
     <>
       {accessToken ? (
@@ -42,6 +56,13 @@ function Home() {
             />
             <button>추가</button>
           </form>
+          <div>
+            <ul>
+              {toDos?.map((toDo: ToDo) => (
+                <ToDoItem key={toDo.id} toDo={toDo} />
+              ))}
+            </ul>
+          </div>
         </div>
       ) : (
         <Navigate to="/auth"></Navigate>
