@@ -1,14 +1,15 @@
-import axios from "axios";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiInstance } from "../../api";
 
 function SignUp() {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const navigate = useNavigate();
+  const instance = apiInstance();
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    const res = await axios.post("http://localhost:8080/users/create", {
+    const res = await instance.post("users/create", {
       email: email,
       password: password,
     });

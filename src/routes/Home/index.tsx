@@ -6,7 +6,7 @@ function Home() {
   const accessToken = localStorage.getItem("accessToken");
   function handleClick() {
     localStorage.removeItem("accessToken");
-    navigate('/auth');
+    navigate("/auth");
   }
   return (
     <>
