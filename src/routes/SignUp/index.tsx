@@ -12,7 +12,7 @@ function SignUp() {
       email: email,
       password: password,
     });
-    localStorage.setItem("accesstoken", res.data.token);
+    localStorage.setItem("accessToken", res.data.token);
     navigate("/");
   }
   return (
