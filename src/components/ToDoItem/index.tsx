@@ -52,7 +52,7 @@ export default function ToDoItem({ toDo, setToDos }: ToDoPros) {
         </>
       ) : (
         <>
-          <h2>{toDo.title}</h2>
+          <h2 id={`${toDo.id}`}><a href={`#${toDo.id}`}>{toDo.title}</a></h2>
           <p>{toDo.content}</p>
           <button onClick={() => setModify(!modify)}>수정</button>
         </>
