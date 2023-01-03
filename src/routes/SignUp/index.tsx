@@ -1,5 +1,7 @@
+import { AxiosError } from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { apiInstance } from "../../api";
 import { Button, Container, Form, Input } from "../../styles/form";
 
@@ -10,12 +12,20 @@ function SignUp() {
   const instance = apiInstance();
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    const res = await instance.post("users/create", {
-      email: email,
-      password: password,
-    });
-    localStorage.setItem("accessToken", res.data.token);
-    navigate("/");
+    try {
+      const res = await instance.post("users/create", {
+        email: email,
+        password: password,
+      });
+      localStorage.setItem("accessToken", res.data.token);
+      navigate("/");
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        toast.error(error.response?.data.details, {
+          theme: "dark"
+        })
+      }
+    }
   }
   return (
     <Container>
@@ -33,7 +43,10 @@ function SignUp() {
           onChange={(e) => setPassword(e.target.value)}
           minLength={8}
         />
-        <Button type="submit">생성</Button>
+        <Button type="submit">가입</Button>
+        <Button>
+          <Link to='/auth'>뒤로</Link>
+        </Button>
       </Form>
     </Container>
   );
