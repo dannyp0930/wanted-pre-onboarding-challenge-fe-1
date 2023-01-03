@@ -57,9 +57,3 @@ export const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
-export const Button = styled.button`
-  background: none;
-  border: none;
-  font-size: 2rem;
-`;

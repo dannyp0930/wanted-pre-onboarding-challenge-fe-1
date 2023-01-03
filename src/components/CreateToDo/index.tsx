@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createTodo, getTodos } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
-import { Button, Buttons, Container, Form, Input, TextArea } from "./style";
+import { Buttons, Container, Form, Input, TextArea } from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
@@ -69,8 +69,8 @@ export default function CreateToDo({
           value={content}
         />
         <Buttons>
-          <Button type="reset"><FontAwesomeIcon icon={faXmark} /></Button>
-          <Button type="submit"><FontAwesomeIcon icon={faPlusSquare} /></Button>
+          <button type="reset"><FontAwesomeIcon icon={faXmark} /></button>
+          <button type="submit"><FontAwesomeIcon icon={faPlusSquare} /></button>
         </Buttons>
       </Form>
     </Container>

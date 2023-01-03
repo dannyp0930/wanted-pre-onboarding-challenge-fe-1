@@ -5,6 +5,7 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
 `;
+
 export const Nav = styled.nav`
   width: 100%;
   display: flex;
