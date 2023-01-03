@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { createTodo, getTodos } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
-import { Button, Container, Form, Input, TextArea } from "./style";
+import { Button, Buttons, Container, Form, Input, TextArea } from "./style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
 type CreateToDoProps = {
   setToDos: React.Dispatch<React.SetStateAction<ToDo[]>>;
@@ -65,8 +68,10 @@ export default function CreateToDo({
           onChange={(e) => setContent(e.target.value)}
           value={content}
         />
-        <Button type="submit">추가</Button>
-        <Button type="reset">닫기</Button>
+        <Buttons>
+          <Button type="reset"><FontAwesomeIcon icon={faXmark} /></Button>
+          <Button type="submit"><FontAwesomeIcon icon={faPlusSquare} /></Button>
+        </Buttons>
       </Form>
     </Container>
   );

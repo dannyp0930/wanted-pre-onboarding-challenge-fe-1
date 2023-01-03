@@ -31,13 +31,35 @@ export const Input = styled.input`
   width: 100%;
   height: 1.5rem;
   font-size: 1rem;
-`;
+  border: none;
+  border-bottom: 1px solid black;
+
+  :focus {
+    outline: none;
+  }
+  `;
 
 export const TextArea = styled.textarea`
   width: 100%;
   height: 10rem;
   font-size: 1rem;
   resize: none;
+  border: none;
+  border-bottom: 1px solid black;
+  
+  :focus {
+    outline: none;
+  }
 `;
 
-export const Button = styled.button``;
+export const Buttons = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Button = styled.button`
+  background: none;
+  border: none;
+  font-size: 2rem;
+`;
