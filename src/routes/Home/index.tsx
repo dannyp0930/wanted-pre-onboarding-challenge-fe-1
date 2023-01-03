@@ -4,7 +4,10 @@ import { getTodos } from "../../api/todo";
 import CreateToDo from "../../components/CreateToDo";
 import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
-import { Article, Container, Items, LogOut, Nav, Title } from "./style";
+import { Article, Container, Items, Nav, Title } from "./style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
 function Home() {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -28,12 +31,19 @@ function Home() {
     <>
       {accessToken ? (
         <Container>
-          {modalOpen &&
-            <CreateToDo setToDos={setToDos} setModalOpen={setModalOpen} />}
+          {modalOpen && (
+            <CreateToDo setToDos={setToDos} setModalOpen={setModalOpen} />
+          )}
           <Nav>
-            <Title>To Do</Title>
-            <button onClick={() => setModalOpen(true)}>할일 추가</button>
-            <LogOut onClick={handleClick}>로그아웃</LogOut>
+            <Title>
+              To Do
+              <button onClick={() => setModalOpen(true)}>
+                <FontAwesomeIcon icon={faPlusSquare} />
+              </button>
+            </Title>
+            <button onClick={handleClick}>
+              <FontAwesomeIcon icon={faRightFromBracket} />
+            </button>
           </Nav>
           <Article>
             <Items>

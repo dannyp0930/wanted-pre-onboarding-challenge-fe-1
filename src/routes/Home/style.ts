@@ -17,10 +17,6 @@ export const Title = styled.h1`
   margin: 1rem;
 `;
 
-export const LogOut = styled.button`
-  margin: 1rem;
-`;
-
 export const Article = styled.article`
   margin-top: 2rem;
   width: 80%;
