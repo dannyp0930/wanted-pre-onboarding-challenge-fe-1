@@ -1,6 +1,6 @@
 # README
 
-# 1-2) 클라이언트 구현 과제 안내
+# 클라이언트 구현 과제 안내
 
 ## Assignment 1 - Login / SignUp
 
