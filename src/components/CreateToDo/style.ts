@@ -19,7 +19,7 @@ export const Form = styled.form`
   transform: translate(-50%, -50%);
   width: 50%;
   padding: 2rem;
-  background-color: white;
+  background-color: #21212B;;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -31,8 +31,10 @@ export const Input = styled.input`
   width: 100%;
   height: 1.5rem;
   font-size: 1rem;
+  color: #F8F8F8;
+  background: none;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #F8F8F8;
 
   :focus {
     outline: none;
@@ -43,9 +45,11 @@ export const TextArea = styled.textarea`
   width: 100%;
   height: 10rem;
   font-size: 1rem;
+  color: #F8F8F8;
   resize: none;
+  background: none;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #F8F8F8;
   
   :focus {
     outline: none;

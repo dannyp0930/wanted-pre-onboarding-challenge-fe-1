@@ -18,18 +18,24 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  font-size: 1rem;
+  font-size: 1.2rem;
   height: 1.5rem;
+  background-color: #F8F8F8;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
 `;
 
 export const Button = styled.button`
-  background-color: pink;
+  background-color: #fc76a1;
   border-radius: 0.5rem;
   font-size: 1.5rem;
+  color: #f8f8f8;
 
   a {
     display: block;
     background: none;
+    color: #f8f8f8;
     text-decoration: none;
   }
 `;
