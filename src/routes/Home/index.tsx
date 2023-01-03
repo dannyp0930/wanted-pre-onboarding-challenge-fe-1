@@ -11,6 +11,7 @@ function Home() {
   const [content, setContent] = useState<string>("");
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("accessToken");
+  const lang = navigator.language
 
   // To Do list 호출
   useEffect(() => {
@@ -60,7 +61,7 @@ function Home() {
           <Article>
             <Items>
               {toDos?.map((toDo: ToDo) => (
-                <ToDoItem key={toDo.id} toDo={toDo} setToDos={setToDos} />
+                <ToDoItem key={toDo.id} toDo={toDo} setToDos={setToDos} lang={lang} />
               ))}
             </Items>
           </Article>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { format } from "timeago.js";
 import { deleteTodo, getTodos, updateTodo } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
+import timeLocale from "../../utils/timeLcale";
 import {
   Button,
   Buttons,
@@ -16,13 +16,13 @@ import {
 type ToDoPros = {
   toDo: ToDo;
   setToDos: React.Dispatch<React.SetStateAction<ToDo[]>>;
+  lang: string;
 };
 
-export default function ToDoItem({ toDo, setToDos }: ToDoPros) {
+export default function ToDoItem({ toDo, setToDos, lang }: ToDoPros) {
   const [modify, setModify] = useState<boolean>(false);
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
-
   useEffect(() => {
     setTitle(toDo.title);
     setContent(toDo.content);
@@ -44,7 +44,6 @@ export default function ToDoItem({ toDo, setToDos }: ToDoPros) {
     const data = await getTodos();
     setToDos(data);
   }
-
   return (
     <Item>
       {modify ? (
@@ -80,8 +79,8 @@ export default function ToDoItem({ toDo, setToDos }: ToDoPros) {
         </>
       )}
       <section>
-        <p>작성 : {format(toDo.createdAt, "ko")}</p>
-        <p>수정 : {format(toDo.updatedAt, "ko")}</p>
+        <p>작성 : {timeLocale(toDo.createdAt, lang)}</p>
+        <p>수정 : {timeLocale(toDo.updatedAt, lang)}</p>
       </section>
     </Item>
   );
