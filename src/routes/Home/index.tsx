@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { createTodo, getTodos } from "../../api/todo";
+import { getTodos } from "../../api/todo";
+import CreateToDo from "../../components/CreateToDo";
 import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
-import { Article, Button, Container, Form, Input, Items, LogOut, Nav, TextArea, Title } from "./style";
+import { Article, Container, Items, LogOut, Nav, Title } from "./style";
 
 function Home() {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [toDos, setToDos] = useState<ToDo[]>([]);
-  const [title, setTitle] = useState<string>("");
-  const [content, setContent] = useState<string>("");
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("accessToken");
-  const lang = navigator.language
+  const lang = navigator.language;
 
   // To Do list 호출
   useEffect(() => {
@@ -24,44 +24,26 @@ function Home() {
     navigate("/auth");
   }
 
-  // To Do 생성
-  async function handleSubmit(e: React.SyntheticEvent) {
-    e.preventDefault();
-    await createTodo(title, content);
-    const data = await getTodos();
-    setToDos(data);
-    setTitle("");
-    setContent("");
-  }
-
   return (
     <>
       {accessToken ? (
         <Container>
+          {modalOpen &&
+            <CreateToDo setToDos={setToDos} setModalOpen={setModalOpen} />}
           <Nav>
             <Title>To Do</Title>
+            <button onClick={() => setModalOpen(true)}>할일 추가</button>
             <LogOut onClick={handleClick}>로그아웃</LogOut>
           </Nav>
-          <Form onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              title="제목"
-              placeholder="제목"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-            />
-            <TextArea
-              title="내용"
-              placeholder="내용"
-              onChange={(e) => setContent(e.target.value)}
-              value={content}
-            />
-            <Button>추가</Button>
-          </Form>
           <Article>
             <Items>
               {toDos?.map((toDo: ToDo) => (
-                <ToDoItem key={toDo.id} toDo={toDo} setToDos={setToDos} lang={lang} />
+                <ToDoItem
+                  key={toDo.id}
+                  toDo={toDo}
+                  setToDos={setToDos}
+                  lang={lang}
+                />
               ))}
             </Items>
           </Article>
