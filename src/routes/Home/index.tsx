@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { getTodos } from "../../api/todo";
@@ -5,9 +8,6 @@ import CreateToDo from "../../components/CreateToDo";
 import ToDoItem from "../../components/ToDoItem";
 import { ToDo } from "../../store/types/interfaces";
 import { Article, Container, Items, Nav, Title } from "./style";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
 function Home() {
   const [modalOpen, setModalOpen] = useState<boolean>(false);

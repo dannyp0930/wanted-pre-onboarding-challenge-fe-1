@@ -1,14 +1,20 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleCheck,
+  faPenToSquare,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { deleteTodo, getTodos, updateTodo } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
 import timeLocale from "../../utils/timeLcale";
 import {
-  Button,
   Buttons,
   Content,
   Header,
   Input,
   Item,
+  Section,
   Textarea,
   Title,
 } from "./style";
@@ -55,8 +61,9 @@ export default function ToDoItem({ toDo, setToDos, lang }: ToDoPros) {
               onChange={(e) => setTitle(e.target.value)}
             />
             <Buttons>
-              <Button onClick={handleUpdate}>완료</Button>
-              <Button onClick={handleDelete}>삭제</Button>
+              <button onClick={handleUpdate}>
+                <FontAwesomeIcon icon={faCircleCheck} />
+              </button>
             </Buttons>
           </Header>
           <Textarea
@@ -71,17 +78,21 @@ export default function ToDoItem({ toDo, setToDos, lang }: ToDoPros) {
               <a href={`#${toDo.id}`}>{toDo.title}</a>
             </Title>
             <Buttons>
-              <Button onClick={() => setModify(!modify)}>수정</Button>
-              <Button onClick={handleDelete}>삭제</Button>
+              <button onClick={() => setModify(!modify)}>
+                <FontAwesomeIcon icon={faPenToSquare} />
+              </button>
+              <button onClick={handleDelete}>
+                <FontAwesomeIcon icon={faTrashCan} />
+              </button>
             </Buttons>
           </Header>
           <Content>{toDo.content}</Content>
         </>
       )}
-      <section>
-        <p>작성 : {timeLocale(toDo.createdAt, lang)}</p>
-        <p>수정 : {timeLocale(toDo.updatedAt, lang)}</p>
-      </section>
+      <Section>
+        <p>{timeLocale(toDo.createdAt, lang)}</p>
+        <p>{timeLocale(toDo.updatedAt, lang)}</p>
+      </Section>
     </Item>
   );
 }

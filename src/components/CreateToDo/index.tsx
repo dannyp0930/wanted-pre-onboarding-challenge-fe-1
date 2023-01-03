@@ -1,10 +1,10 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { createTodo, getTodos } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
 import { Buttons, Container, Form, Input, TextArea } from "./style";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
 type CreateToDoProps = {
   setToDos: React.Dispatch<React.SetStateAction<ToDo[]>>;

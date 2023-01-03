@@ -64,7 +64,14 @@ export const Content = styled.p`
 export const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 6rem;
+  column-gap: 1rem;
 `;
 
-export const Button = styled.button``;
+export const Section = styled.section`
+  color: gray;
+  display: flex;
+  justify-content: space-between;
+  p {
+    font-size: 0.8rem;
+  }
+`;
