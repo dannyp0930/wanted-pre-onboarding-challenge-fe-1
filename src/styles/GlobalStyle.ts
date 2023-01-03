@@ -7,6 +7,11 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     background-color: #181820;
+    -ms-overflow-style: none;
+  }
+ 
+  ::-webkit-scrollbar {
+      display: none;
   }
   
   h1 {
