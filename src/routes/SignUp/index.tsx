@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiInstance } from "../../api";
+import { Button, Container, Form, Input } from "../../styles/form";
 
 function SignUp() {
   const [email, setEmail] = useState<string>();
@@ -17,24 +18,24 @@ function SignUp() {
     navigate("/");
   }
   return (
-    <div>
+    <Container>
       <h1>회원가입</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Input
           type="email"
           placeholder="이메일"
           onChange={(e) => setEmail(e.target.value)}
           pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$"
         />
-        <input
+        <Input
           type="password"
           placeholder="비밀번호"
           onChange={(e) => setPassword(e.target.value)}
           minLength={8}
         />
-        <button type="submit">생성</button>
-      </form>
-    </div>
+        <Button type="submit">생성</Button>
+      </Form>
+    </Container>
   );
 }
 

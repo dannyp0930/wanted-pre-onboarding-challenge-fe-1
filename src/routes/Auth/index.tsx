@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiInstance } from "../../api";
+import { Button, Container, Form, Input } from "../../styles/form";
 
 function Auth() {
   const [email, setEmail] = useState<string>();
@@ -17,23 +18,25 @@ function Auth() {
     navigate("/");
   }
   return (
-    <div>
+    <Container>
       <h1>로그인</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Input
           type="email"
           placeholder="이메일"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        <Input
           type="password"
           placeholder="비밀번호"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>로그인</button>
-      </form>
-      <Link to="/signup">회원가입</Link>
-    </div>
+        <Button>로그인</Button>
+      </Form>
+      <Button>
+        <Link to="/signup">회원가입</Link>
+      </Button>
+    </Container>
   );
 }
 
