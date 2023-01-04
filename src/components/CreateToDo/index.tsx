@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { createTodo, getTodos } from "../../api/todo";
 import { ToDo } from "../../store/types/interfaces";
 import { Buttons, Container, Form, Input, TextArea } from "./style";
+import { toast } from "react-toastify";
 
 type CreateToDoProps = {
   setToDos: React.Dispatch<React.SetStateAction<ToDo[]>>;
@@ -34,12 +35,18 @@ export default function CreateToDo({
   // To Do 생성
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    await createTodo(title, content);
-    const data = await getTodos();
-    setToDos(data);
-    setTitle("");
-    setContent("");
-    setModalOpen(false);
+    if (title) {
+      await createTodo(title, content);
+      const data = await getTodos();
+      setToDos(data);
+      setTitle("");
+      setContent("");
+      setModalOpen(false);
+    } else {
+      toast.error("제목을 입력하세요", {
+        theme: "dark"
+      })
+    }
   }
 
   // 모달 창 닫기
