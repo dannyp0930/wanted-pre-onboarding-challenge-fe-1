@@ -19,8 +19,16 @@ export const Title = styled.h1`
 
 export const Article = styled.article`
   margin-top: 2rem;
-  width: 80%;
+  width: 50%;
   display: flex;
+  
+  @media screen and (max-width: 1023px){
+    width: 65%;
+  }
+
+  @media screen and (max-width: 767px){
+    width: 80%;
+  }
 `;
 
 export const Items = styled.ul`

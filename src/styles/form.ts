@@ -8,7 +8,7 @@ export const Container = styled.article`
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  width: 40%;
+  width: 30%;
 `;
 
 export const Form = styled.form`
