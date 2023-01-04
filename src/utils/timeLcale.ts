@@ -1,4 +1,7 @@
 export default function timeLocale(dateString: string, lang: string) {
+  if (!dateString) {
+    return "";
+  }
   const formatter = new Intl.RelativeTimeFormat(lang, { numeric: "auto" });
   const today = Date.now();
   const date = new Date(dateString).valueOf();

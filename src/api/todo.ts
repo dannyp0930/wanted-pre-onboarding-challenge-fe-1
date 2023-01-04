@@ -5,16 +5,16 @@ const instance = tokenInstance();
 export async function getTodos() {
   try {
     const res = await instance.get("/todos");
-    return res.data.data
+    return res.data.data;
   } catch (error) {
     console.log(error);
   }
 }
 
-export async function getTodoById() {
+export async function getTodoById(id: string) {
   try {
-    const res = await instance.get("/todos");
-    return res
+    const res = await instance.get(`/todos/${id}`);
+    return res.data.data;
   } catch (error) {
     console.log(error);
   }
@@ -26,7 +26,7 @@ export async function createTodo(title: string, content: string) {
       title: title,
       content: content,
     });
-    return res
+    return res;
   } catch (error) {
     console.log(error);
   }
@@ -38,7 +38,7 @@ export async function updateTodo(id: string, title: string, content: string) {
       title: title,
       content: content,
     });
-    return res
+    return res;
   } catch (error) {
     console.log(error);
   }
