@@ -3,7 +3,6 @@ import {
   faPenToSquare,
   faXmarkCircle,
 } from "@fortawesome/free-regular-svg-icons";
-import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { getTodoById, getTodos, updateTodo } from "../../api/todo";
