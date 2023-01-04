@@ -18,6 +18,7 @@ export const Header = styled.div`
 
 export const Input = styled.input`
   width: 50%;
+  color: #F8F8F8;
   font-size: 1.5rem;
   font-weight: bold;
   height: calc(1.5rem - 1px);
@@ -25,11 +26,11 @@ export const Input = styled.input`
   border: none;
   border-bottom: 1px solid #F8F8F8;
   padding: 0.5rem;
-
+  
   :focus {
     outline: none;
   }
-`;
+  `;
 
 export const Title = styled.h2`
   height: 1.5rem;
@@ -38,9 +39,10 @@ export const Title = styled.h2`
     text-decoration: none;
     color: #F8F8F8;
   }
-`;
+  `;
 
 export const Textarea = styled.textarea`
+  color: #F8F8F8;
   font-size: 1rem;
   line-height: 125%;
   resize: none;
