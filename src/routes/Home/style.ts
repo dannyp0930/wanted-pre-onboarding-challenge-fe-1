@@ -4,6 +4,7 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1.5rem;
 `;
 
 export const Nav = styled.nav`
@@ -11,10 +12,18 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  button {
+    margin: 1rem;
+  }
 `;
 
 export const Title = styled.h1`
   margin: 1rem;
+
+  button {
+    margin: 0 1rem;
+  }
 `;
 
 export const Article = styled.article`
