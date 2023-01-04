@@ -50,7 +50,7 @@ export const Textarea = styled.textarea`
   border: none;
   border-bottom: 1px solid #F8F8F8;
   padding: 0;
-  height: calc(5rem - 1px);
+  height: calc(4rem - 1px);
 
   :focus {
     outline: none;
@@ -58,7 +58,7 @@ export const Textarea = styled.textarea`
 `;
 
 export const Content = styled.p`
-  height: 5rem;
+  height: 4rem;
   padding: 0;
   line-height: 125%;
   white-space: pre-line;
