@@ -35,6 +35,7 @@ export const Input = styled.input`
 export const Title = styled.h2`
   height: 1.5rem;
   padding: 0.5rem;
+  
   a {
     text-decoration: none;
     color: #F8F8F8;
