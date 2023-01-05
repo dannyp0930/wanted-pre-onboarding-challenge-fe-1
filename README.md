@@ -1,8 +1,35 @@
 # README
 
-# 클라이언트 구현 과제
+## 목차
 
-## Assignment 1 - Login / SignUp
+- [개요](#개요)
+- [실행 방법](#실행 방법)
+- [개발 환경](#개발 환경)
+- [클라이언트 구현 과제](#클라이언트 구현 과제)
+
+## 개요
+
+원티드 프리온보딩 챌린지 프론트엔드 코스 사전과제
+
+## 실행 방법
+
+```bash
+$ npm start
+```
+
+## 개발 환경
+
+- React@18.2.0
+- react-router-dom@6.6.1
+- typescript@2.1.4
+- axios@1.2.2
+- styled-compenent@5.3.6
+- react-toastify@5.3.6
+- fontawesome@6.2.1
+
+## 클라이언트 구현 과제
+
+### Assignment 1 - Login / SignUp
 
 - /auth 경로에 로그인 / 회원가입 기능을 개발합니다
 
@@ -22,9 +49,9 @@
 
   - [x] 다음 번에 로그인 시 토큰이 존재한다면 루트 경로로 리다이렉트 시켜주세요
 
-  - [ ] 어떤 경우든 토큰이 유효하지 않다면 사용자에게 알리고 로그인 페이지로 리다이렉트 시켜주세요
+  - [x] 어떤 경우든 토큰이 유효하지 않다면 사용자에게 알리고 로그인 페이지로 리다이렉트 시켜주세요
 
-## Assignment 2 - Todo List
+### Assignment 2 - Todo List
 
 - Todo List API를 호출하여 Todo List CRUD 기능을 구현해주세요
 
